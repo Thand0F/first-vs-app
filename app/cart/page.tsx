@@ -1,3 +1,4 @@
+"use client";
 import { useCart } from "../../context/cartcontext";
 import Link from "next/link";
 

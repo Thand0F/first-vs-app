@@ -1,5 +1,6 @@
+"use client";
 import Link from "next/link";
-import { products } from "./data";
+import { products } from "../data";
 
 export default function ProductsPage() {
   return (

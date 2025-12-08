@@ -1,10 +1,10 @@
-import { Product } from "../types";
+import { Product } from "./types";
 
 export const products: Product[] = [
   {
     id: 1,
     name: "Classic White T-Shirt",
-    price: 199,
+    price: 180,
     image: "/whiteshirt.jpg",
     description: "Comfortable cotton white T-shirt"
   },

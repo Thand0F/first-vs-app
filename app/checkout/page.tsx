@@ -1,3 +1,4 @@
+"use client";
 import { useCart } from "../../context/cartcontext";
 
 export default function CheckoutPage() {
