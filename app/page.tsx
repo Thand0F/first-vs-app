@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import heroImage from "../public/store.jpg"; // Add your image in the public folder
 
 export default function Home() {
@@ -24,11 +25,14 @@ export default function Home() {
             className="object-cover"
           />
         </div>
-
         {/* Action Buttons */}
         <div className="flex justify-center gap-4">
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+          <button>
+          <Link
+          href="/products"
+          className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
             Shop Now
+          </Link>
           </button>
           <button className="bg-gray-200 text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-300 transition">
             Learn More
