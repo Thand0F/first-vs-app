@@ -27,7 +27,7 @@ export default function ProductsPage() {
             </div>
             <h2 className="text-2xl font-semibold mb-2">{product.name}</h2>
             <p className="text-lg font-bold mb-4">R{product.price}</p>
-
+            <p className="text-black-700 text-sm mb-3">{product.description}</p>
             <button
               onClick={() => addToCart(product)}
               className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
