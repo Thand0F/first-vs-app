@@ -9,6 +9,7 @@ type Product = {
   price: number;
   image: string;
   description: string;
+  quantity?: number;
 };
 
 type Props = {

@@ -1,40 +1,53 @@
-"use client";
-
-import { useCart } from "../../context/cartcontext";
 import Link from "next/link";
+import { cookies } from "next/headers";
+import jwt from "jsonwebtoken";
 
-export default function Header() {
-  const { cart } = useCart();
+export default async function Navbar() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token")?.value;
+
+  let user = null;
+  if (token) {
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET!);
+      user = typeof decoded === "string" ? null : decoded;
+    } catch {
+      user = null;
+    }
+  }
 
   return (
-    <header className="w-full bg-white shadow-md p-4 flex justify-between items-center">
-      <h1 className="text-2xl font-bold">Clothing Store</h1>
+    <nav className="flex justify-between items-center px-6 py-4 shadow">
+      <Link href="/" className="text-2xl font-bold">ABC</Link>
 
-      <nav className="flex items-center gap-6">
-        <Link href="/" className="text-lg hover:text-blue-600 transition">
-          Home
-        </Link>
+      <div className="flex gap-6 items-center">
+        <Link href="/">Home</Link>
+        <Link href="/products">Products</Link>
+        <Link href="/cart">Cart 🛒</Link>
 
-        <Link href="/products" className="text-lg hover:text-blue-600 transition">
-          Products
-        </Link>
+        {!user && (
+          <>
+            <Link href="/login" className="text-blue-600 font-semibold">
+              Login
+            </Link>
+            <Link href="/register" className="text-black-600 font-semibold">
+              Register
+            </Link>
+          </>
+        )}
 
-        {/* Cart Tab + Number Badge */}
-        <div className="relative">
-          <Link
-            href="/cart"
-            className="text-lg font-medium hover:text-blue-600 transition"
-          >
-            Cart
+        {user?.role === "admin" && (
+          <Link href="/admin" className="text-red-600 font-semibold">
+            Admin Panel
           </Link>
+        )}
 
-          {cart.length > 0 && (
-            <span className="absolute -top-3 -right-4 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-              {cart.length}
-            </span>
-          )}
-        </div>
-      </nav>
-    </header>
+        {user && (
+          <Link href="/logout" className="text-gray-600 font-semibold">
+            Logout
+          </Link>
+        )}
+      </div>
+    </nav>
   );
 }

@@ -20,8 +20,8 @@ export default function CartPage() {
           key={item.id}
           className="flex justify-between items-center border-b py-4"
         >
-          <span>{item.name}</span>
-          <span>R{item.price}</span>
+          <span className="product-name w-1/2">{item.name}</span>
+          <span className="product-price w-1/4 text-center">R{item.price}</span>
           <button
             onClick={() => removeFromCart(item.id)}
             className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition"

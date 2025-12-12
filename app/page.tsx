@@ -1,4 +1,4 @@
-import Product from "./models/product";
+import Product from "@/models/product";
 import { connectDB } from "@/lib/mongodb";
 import Link from "next/link";
 import Image from "next/image";
@@ -13,7 +13,7 @@ export default async function Home() {
     <div className="min-h-screen bg-gray-100 p-10">
       {/* Hero Section */}
       <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-2xl p-10 mb-16 text-center">
-        <h1 className="text-4xl font-bold">Welcome to Our Clothing Store</h1>
+        <h1 className="text-4xl font-bold">Welcome to ABC CLOTHING SHOP</h1>
         <p className="text-gray-600 mt-2">Discover premium styles and trends.</p>
 
         <Link
@@ -27,7 +27,7 @@ export default async function Home() {
       <section id="about" className="py-20 px-6 max-w-5xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-gray-800 mb-6">About Us</h2>
         <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
-          At <span className="font-semibold">Clothing Shop</span>, we believe fashion
+          At <span className="font-semibold">ABC Clothing Shop</span>, we believe fashion
           is more than just clothing — it is a form of expression. Our mission is to provide
           high-quality apparel that blends comfort, style, and affordability.  
           <br /><br />
@@ -40,7 +40,7 @@ export default async function Home() {
        {/* FOOTER / TRADEMARK */}
       <footer className="bg-gray-900 text-white py-6 mt-10 text-center">
         <p className="text-sm opacity-80">
-          © {new Date().getFullYear()} Clothing Shop™ — All Rights Reserved.
+          © {new Date().getFullYear()} ABC Clothing Shop™ — All Rights Reserved.
         </p>
       </footer>
     </div>
